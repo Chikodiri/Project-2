@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+html {
+  scrollbar-width: inherit;
+  scrollbar-color: #db0660 #000;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background-image: url("./assets/home.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Add this to your styles.css */
+.spotlight__overlay {
+  background: linear-gradient(
+      61deg,
+      rgba(0, 0, 0, 0.8) 11.52%,
+      rgba(0, 0, 0, 0) 54.06%
+    ),
+    url(<path-to-image>),
+    rgba(211, 211, 211, 0) -542px -285.468px / 131.629% 130.829% no-repeat;
+}
+
+.best-chills .slide {
+  border: 5px solid rgb(239, 217, 18);
+}
+
+.test {
+  color: rgb(194, 194, 194);
+  box-shadow: 0px 10px 25px 1px #270011;
+}
