@@ -24,3 +24,6 @@ This project is create with React working in Vite with HMR and some ESLint rules
 - [React Icons](https://react-icons.github.io/react-icons/)
 - [React Router](https://reactrouter.com/en/main)
 
+## TMDB API
+
+- [DISCOVER LINK](https://developer.themoviedb.org/reference/discover-movie)
