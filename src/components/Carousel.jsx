@@ -57,4 +57,21 @@ function Carousel(props) {
     );
 }
 
+Carousel.propTypes = {
+    movieList: PropTypes.arrayOf(PropTypes.shape({
+        title: PropTypes.string,
+        backdrop_path: PropTypes.string
+    })).isRequired,
+    autoSlide: PropTypes.bool,
+    autoSlideInterval: PropTypes.number,
+    sectionID: PropTypes.number.isRequired,
+    slideSize: PropTypes.number
+};
+
+Carousel.defaultProps = {
+    autoSlide: false,
+    autoSlideInterval: 3000,
+    slideSize: 4
+};
+
 export default Carousel;
