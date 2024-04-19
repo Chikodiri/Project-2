@@ -31,27 +31,27 @@ function Home() {
                 </div>
                 <section className="container p-4 mx-auto mb-12">
                     <h2 className=" text-clamp-h2 font-semibold mb-8 text-white">Best Chills for You</h2>
-                    <Carousel sectionID={1} movieList={spotlightMovies} autoSlide={false} className=" h-[100px]" />
+                    <Carousel sectionID={1} request={requests.tvShows} autoSlide={false} className=" h-[100px]" />
                 </section>
                 <section className="container p-4 mx-auto mb-12">
                     <h2 className=" text-clamp-h2 font-semibold mb-8 text-white">Keep Watching</h2>
-                    <Carousel sectionID={2} movieList={spotlightMovies} autoSlide={false} slideSize={3} />
+                    <Carousel sectionID={2} request={requests.nowPlaying} autoSlide={false} slideSize={3} />
                 </section>
                 <section className="container p-4 mx-auto mb-12">
                     <h2 className=" text-clamp-h2 font-semibold mb-8 text-white">Popular on Watchill</h2>
-                    <Carousel sectionID={3} movieList={spotlightMovies} autoSlide={false} />
+                    <Carousel sectionID={3} request={requests.popular} autoSlide={false} />
                 </section>
                 <section className="container p-4 mx-auto mb-12">
                     <h2 className=" text-clamp-h2 font-semibold mb-8 text-white">Top Action Shows</h2>
-                    <Carousel sectionID={4} movieList={spotlightMovies} autoSlide={false} />
+                    <Carousel sectionID={4} request={requests.top} autoSlide={false} />
                 </section>
                 <section className="container p-4 mx-auto mb-12">
                     <h2 className=" text-clamp-h2 font-semibold mb-8 text-white">Subscription or Buy</h2>
-                    <Carousel sectionID={5} movieList={spotlightMovies} autoSlide={false} />
+                    <Carousel sectionID={5} request={requests.nowPlaying} autoSlide={false} />
                 </section>
                 <section className="container p-4 mx-auto mb-12">
                     <h2 className=" text-clamp-h2 font-semibold mb-8 text-white">Upcoming</h2>
-                    <Carousel sectionID={6} movieList={spotlightMovies} autoSlide={false} slideSize={3} />
+                    <Carousel sectionID={6} request={requests.upcoming} autoSlide={false} slideSize={3} />
                 </section>
             </main>
         </>

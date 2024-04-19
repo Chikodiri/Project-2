@@ -1,16 +1,24 @@
 import PropTypes from 'prop-types';
-import { image_uri } from "../Request";
+import { image_uri, requests } from "../Request";
 import { BiChevronLeft, BiChevronRight } from 'react-icons/bi';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 function Carousel(props) {
+    const [movieList, setMovieList] = useState([]);
+
     useEffect(() => {
         // This code runs after the component has rendered
         const slider = document.getElementById(`slider-${props.sectionID}`);
         if (slider) {
             // Access the slider element and perform any necessary actions
         }
-    }, [props.sectionID, props.slideSize]); // Run this effect whenever sectionID changes
+
+        fetch(props.request)
+            .then(res => res.json())
+            .then(json => setMovieList(json.results))
+            .catch((error) => console.error('Error fetching movies:', error));
+
+    }, [props.request, props.sectionID, props.slideSize]); // Run this effect whenever sectionID changes
     const prev = () => {
         const slider = document.getElementById(`slider-${props.sectionID}`);
         if (!slider) return (slider);
@@ -39,7 +47,7 @@ function Carousel(props) {
     return (
         <div className='relative overflow-hidden group'>
             <div id={`slider-${props.sectionID}`} className="slider flex -ml-4 overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide">
-                {props.movieList.map((movie, index) => {
+                {movieList.map((movie, index) => {
                     return (
                         <div key={index} className={`slide min-w-0 shrink-0 grow-0 basis-full pl-4 rounded-[10px] shadow-custom md:basis-1/2 ${(props.slideSize === 4) ? 'lg:basis-1/4' : 'lg:basis-1/3'}`}>
                             <img src={`${image_uri}/w500/${movie.backdrop_path}`} className='w-full' alt="" />
@@ -58,20 +66,18 @@ function Carousel(props) {
 }
 
 Carousel.propTypes = {
-    movieList: PropTypes.arrayOf(PropTypes.shape({
-        title: PropTypes.string,
-        backdrop_path: PropTypes.string
-    })).isRequired,
     autoSlide: PropTypes.bool,
     autoSlideInterval: PropTypes.number,
     sectionID: PropTypes.number.isRequired,
-    slideSize: PropTypes.number
+    slideSize: PropTypes.number,
+    request: PropTypes.string,
 };
 
 Carousel.defaultProps = {
     autoSlide: false,
     autoSlideInterval: 3000,
-    slideSize: 4
+    slideSize: 4,
+    request: requests.discovery,
 };
 
 export default Carousel;
